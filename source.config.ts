@@ -7,6 +7,9 @@ import { z } from "zod";
 export const blogs = defineCollections({
   type: "doc",
   dir: "content/blog",
+  postprocess: {
+    includeProcessedMarkdown: true,
+  },
   schema: pageSchema.extend({
     author: z.string(),
     date: z.string().date().or(z.date()), // enforcing structured blog dates
