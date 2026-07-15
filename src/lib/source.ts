@@ -6,13 +6,13 @@ import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 
-export const blog = loader({
+export const source = loader({
   baseUrl: "/",
   source: toFumadocsSource(blogs, []),
   plugins: [lucideIconsPlugin()],
 });
 
-export function getPageImage(page: (typeof blog)["$inferPage"]) {
+export function getPageImage(page: (typeof source)["$inferPage"]) {
   const segments = [...page.slugs, "image.png"];
 
   return {
@@ -21,7 +21,7 @@ export function getPageImage(page: (typeof blog)["$inferPage"]) {
   };
 }
 
-export function getPageMarkdownUrl(page: (typeof blog)["$inferPage"]) {
+export function getPageMarkdownUrl(page: (typeof source)["$inferPage"]) {
   const segments = [...page.slugs, "content.md"];
 
   return {
@@ -30,7 +30,7 @@ export function getPageMarkdownUrl(page: (typeof blog)["$inferPage"]) {
   };
 }
 
-export async function getLLMText(page: (typeof blog)["$inferPage"]) {
+export async function getLLMText(page: (typeof source)["$inferPage"]) {
   const processed = await page.data.getText("processed");
 
   return `# ${page.data.title} (${page.url})

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blog } from "@/lib/source";
+import { source as blog } from "@/lib/source";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

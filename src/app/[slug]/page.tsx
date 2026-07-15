@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { blog } from "@/lib/source";
+import { source as blog } from "@/lib/source";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 
