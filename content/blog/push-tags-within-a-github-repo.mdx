@@ -1,0 +1,60 @@
+---
+title: Push tags on GitHub
+description: Learn about the best approach of pushing a tag on github, unlike separate push for tag and package version it is better to combine them into one single command.
+author: "thatonevikash"
+date: 2026-05-29
+---
+
+## Best way to push tag on `github`
+
+### Noob approach of pushing a tag
+
+If you are using the command as
+
+```bash
+# lists all tags
+git tag
+
+# creates a new tag
+git tag v0.1.1
+```
+
+Then you push on that tag
+
+```bash
+# push on github
+git push origin v0.1.1
+```
+
+<Callout title="Know" type="idea">
+  It doesn't update your `package.json` <br />
+  It doesn't anchor your package version.
+</Callout>
+
+Now have to manually update the package version and push it separately.
+
+```bash
+# 1. update package version
+npm version patch
+
+# 2. push a separate commit
+git push
+```
+
+<Callout title="Note">
+  patch for `0.0.*` <br />
+  minor for `0.*.0` <br />
+  major for `*.0.0`
+</Callout>
+
+### Pro approach of pushing a tag
+
+```bash
+# 1. Bumps version, updates package.json, commits, and tags locally
+npm version patch
+
+# 2. Pushes the commit to main AND pushes the newly created tag simultaneously
+git push origin main --follow-tags
+```
+
+**Thanks for reading 💖!**

@@ -41,7 +41,7 @@ export default function HomePage() {
           Upfronting
         </h1>
         <p className="text-lg text-fd-muted-foreground leading-relaxed">
-          Thoughts, deep-dives, and learning through tech.
+          Thoughts, deep-dives, and experiences over tech life.
         </p>
       </header>
 

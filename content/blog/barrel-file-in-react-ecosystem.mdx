@@ -1,0 +1,76 @@
+---
+title: Barrel file in React Eco-System
+description: Why do we need a barrel file in modern react codebases, how do we use it?, Why modern react codebases loves the barrel file
+author: "thatonevikash"
+date: 2026-05-24
+---
+
+## Use of a barrel file (`index.js` or `index.ts`) with in modern react codebases.
+
+> **A barrel file is nothing just a `index.js` or `index.ts` file within a folder.**
+
+It is useful to make `import` statements shorter and beautiful.
+
+```js
+// src/components/avatar/index.js
+
+export * from "./avatar.jsx";
+
+export { classes as avatarClasses } from "./classes.js";
+```
+
+```js
+// src/components/avatar/avatar.jsx
+
+export function Avatar() {
+  return (
+    // Your component
+  )
+}
+
+// src/components/avatar/classes.js
+
+export const classes = {
+  root: 'avatar__root',
+}
+```
+
+```jsx
+import { Avatar } from "@components/avatar"; // with barrel file
+import { Avatar } from "@components/avatar/avatar"; // without barrel file
+
+export default function Page() {
+  return (
+    <>
+      <Avatar src="/assets/user.png" />
+    </>
+  );
+}
+```
+
+<Callout title="Warning" type="warn">
+  named `export` and `default` `export` behaves differently in modules.
+</Callout>
+
+**If your component looks like this**
+
+```jsx
+export default function Avatar() {
+  return (
+    // Your component
+  )
+}
+```
+
+If file is getting default exported 👇
+
+```js
+// src/components/avatar/index.js
+
+export * from "./avatar.jsx"; // [!code --]
+export { default } from "./avatar.jsx"; // [!code ++]
+
+export { classes as avatarClasses } from "./classes.js";
+```
+
+> **Modern react codebases prefers named export for component.**
