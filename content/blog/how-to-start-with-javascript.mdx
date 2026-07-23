@@ -1,0 +1,83 @@
+---
+title: How to Start with JavaScript
+description: Setup your own JavaScript working environment to build projects with JavaScript and Beyond!
+author: thatonevikash
+date: 2025-04-28
+---
+
+import { ArrowDownToLine } from "lucide-react";
+
+![banner](/how-to-start-with-javascript/banner.png)
+
+## Environments
+
+There are primarily two ways to write and run JavaScript code.
+
+- Browser ( `legacy` )
+
+You can directly run scripts on browser base console ( native )
+
+- NodeJs ( `modern` )
+
+Configure an standalone environment to execute scripts.
+
+---
+
+## NodeJs ( `nodejs` )
+
+For a long while, `JavaScript` was hidden behind the walls of browser,<br /> But in the recent past - _Ryan dahl_ did something unexpected and brought the `JavaScript` runtime upfront to execute scripts without relying on any browser.
+
+### Configure
+
+#### Step 1: Install an `IDE`
+
+IDE stands for Integrated Development Environment.<br />
+My personal pick is `VSCode`, due to its beginner friendly UI and runs on lower devices.<br />
+Easy to start with if you're a beginner.
+
+[Download <ArrowDownToLine className="w-4 h-4 inline" />](https://code.visualstudio.com/)
+
+#### Step 2: Install `nodejs`
+
+Go to the official nodejs site and download the best suite for your machine ( PC ). The website is smart and it will suggest you the right download option.
+
+[Download <ArrowDownToLine className="w-4 h-4 inline" />](https://nodejs.org/en)
+
+### Run your first `JavaScript` code
+
+**Step 1**: Create a directory and open it in `vscode`.
+
+**Step 2**: Create a new file name it `hello.js` ( `welcome.js`, `your-name.js` )
+
+```js
+console.log("Hello World!");
+```
+
+**Step 3**: Click on Terminal on the left above section of `vscode` and create a **New Terminal**.
+
+**Step 4**: Type the below ( considering your file name is `hello.js` )
+
+```bash
+node hello.js
+```
+
+And press `Enter`.
+
+---
+
+### Limitation of `nodejs` environment
+
+Since `nodejs` is now a standalone runtime so you will lose all the browser specific actions and methods.<br />
+
+```js
+// Browser based alerts
+alert("Alert");
+
+// document is not available with in nodejs server
+console.log(document);
+
+// this is not accessible
+console.log(this);
+```
+
+**Thanks for Reading**
